@@ -103,6 +103,21 @@
     color:var(--pink-deep);
   }
 
+  .tagline-badge{
+    display:inline-flex; align-items:center;
+    background:var(--coral); color:#fff;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700; font-size:13.5px;
+    padding:6px 14px; border-radius:20px;
+    transform:rotate(-2deg);
+    margin-bottom:16px;
+  }
+  .tagline-badge.stamp{
+    position:absolute; top:14px; right:14px; z-index:2;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,0.35);
+    transform:rotate(6deg);
+  }
+
   /* ---------------- Header ---------------- */
   header.site{
     position:sticky; top:0; z-index:40;
@@ -548,6 +563,7 @@
         </div>
       </div>
       <div class="hero-art">
+        <span class="tagline-badge stamp"><span class="es">Bueno, bueno, bonito y barato</span><span class="en">Quality, style, and a fair price</span></span>
         <img src="images/optica-el-paso-facade.jpg" alt="Fachada de Óptica 20•20 en 8080 Gateway East, El Paso, TX">
       </div>
     </div>
