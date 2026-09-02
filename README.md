@@ -9,11 +9,16 @@ any static file server.
 
 ## Status / open items
 
-- [ ] **Official logo** — currently a placeholder wordmark ("Óptica 20•20"). Swap
-      in the real Veinte Veinte logo file once received.
-- [ ] **Photos** — `images/optica-el-paso-facade.jpg` and `images/optica-el-paso-sign.jpg`
-      are placeholders (real phone photos of the location). See `images/README.md`
-      for exact filenames if replacing with professional photography.
+- [x] **Official logo** — `images/logo-veinte-veinte.png`, extracted from the brand's
+      source PDF. Native resolution is only 419×146px (the source file has no larger
+      version), so it's fine at header/footer size but shouldn't be scaled up much
+      beyond that — ask for a higher-res or vector (AI/EPS/SVG) export if it needs to
+      go larger anywhere.
+- [ ] **Location photos** — `images/optica-el-paso-facade.jpg` and
+      `images/optica-el-paso-sign.jpg` referenced in `index.html` but not yet in this
+      repo (real phone photos of the location, meant as placeholders until
+      professional photography is available). See `images/README.md` for exact
+      filenames — drop them in and they appear with no code changes.
 - [ ] **Insurance list** — currently generic "most major vision plans" wording;
       swap for a named plan list if/when confirmed.
 
@@ -21,5 +26,5 @@ any static file server.
 
 ```
 index.html   — the entire page (HTML/CSS/JS, no dependencies besides Google Fonts)
-images/      — location photos referenced by index.html
+images/      — logo + location photos referenced by index.html
 ```
