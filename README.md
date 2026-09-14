@@ -21,6 +21,16 @@ any static file server.
       filenames — drop them in and they appear with no code changes.
 - [ ] **Insurance list** — currently generic "most major vision plans" wording;
       swap for a named plan list if/when confirmed.
+- [ ] **Domain purchase** — pick and buy a domain, then point it at wherever the
+      site ends up hosted.
+- [ ] **Hosting / GitHub Pages** — enable Pages on this repo (or pick another static
+      host) so the domain has somewhere to point.
+- [ ] **Security pass** — see the checklist in the PR/commit notes: repo visibility,
+      2FA on the GitHub account, confirm the leaked personal access token from early
+      setup was actually revoked, secret scanning enabled.
+- [ ] **Page quality score** — once photos + domain are in, run a Lighthouse-style
+      audit (performance / accessibility / best practices / SEO) and report the
+      score back.
 
 ## Structure
 
