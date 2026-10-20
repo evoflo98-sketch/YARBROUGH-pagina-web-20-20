@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Óptica 20•20 El Paso</title>
 <meta name="description" content="Ópticas Veinte Veinte en El Paso, TX. Lentes listos en 1 hora con laboratorio propio. Aseguranzas aceptadas. Lunes a sábado, 9 AM – 6 PM. (915) 592-2020.">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap">
@@ -196,7 +197,10 @@
     padding:14px 26px; border-radius:30px;
     text-decoration:none; cursor:pointer; border:none;
   }
-  .btn svg{width:17px; height:17px; flex:none;}
+  .btn svg{width:17px; height:17px; flex:none; transition:transform .2s;}
+  .btn:hover svg{transform:translateX(3px);}
+  .btn{transition:background .2s, border-color .2s, transform .2s;}
+  .btn:hover{transform:translateY(-1px);}
   .btn-primary{background:var(--pink); color:#fff; box-shadow:var(--shadow);}
   .btn-primary:hover{background:var(--pink-deep);}
   .btn-secondary{background:var(--surface); color:var(--ink); border:2px solid var(--border-strong);}
@@ -209,13 +213,11 @@
     overflow:hidden;
     padding:64px 0 72px;
   }
-  .hero::before{
-    content:"";
-    position:absolute; top:-160px; right:-160px;
-    width:520px; height:520px; border-radius:50%;
-    background:radial-gradient(circle, var(--pink-soft), transparent 70%);
-    z-index:0;
+  .hero::before, .hero::after{
+    content:""; position:absolute; border-radius:50%; z-index:0; pointer-events:none;
   }
+  .hero::before{top:-220px; right:-180px; width:640px; height:640px; background:radial-gradient(circle, var(--pink-soft), transparent 68%);}
+  .hero::after{bottom:-260px; left:-200px; width:560px; height:560px; background:radial-gradient(circle, var(--coral-soft), transparent 66%); opacity:.8;}
   .hero-grid{
     position:relative; z-index:1;
     display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
@@ -237,6 +239,8 @@
     transition:transform .15s, border-color .15s;
   }
   .contact-tile:hover{transform:translateY(-2px); border-color:var(--pink);}
+  .contact-tile::after{content:"→"; margin-left:auto; align-self:center; font-weight:800; font-size:20px; opacity:.7; transition:transform .2s;}
+  .contact-tile:hover::after{transform:translateX(4px); opacity:1;}
   .contact-tile svg{width:22px; height:22px; flex:none; margin-top:2px; color:var(--pink);}
   .contact-tile.primary{background:var(--pink); border-color:var(--pink); color:#fff; box-shadow:var(--shadow);}
   .contact-tile.primary svg{color:#fff;}
@@ -249,11 +253,16 @@
     position:relative;
     aspect-ratio:4/3.1;
     border-radius:28px;
-    background:linear-gradient(160deg, var(--pink-soft), var(--coral-soft));
-    border:1px solid var(--border);
+    background:var(--surface);
+    border:10px solid var(--surface);
+    box-shadow:0 34px 70px -34px rgba(120,0,60,.55), 0 2px 0 var(--border);
     display:flex; align-items:center; justify-content:center;
     overflow:hidden;
+    transform:rotate(-2deg);
+    transition:transform .4s ease;
   }
+  .hero-art:hover{transform:rotate(0deg) scale(1.01);}
+  .hero-art picture{border-radius:18px; overflow:hidden;}
   .hero-art svg{width:64%; height:64%;}
   .hero-art picture{display:block; width:100%; height:100%;}
   .hero-art img{width:100%; height:100%; object-fit:cover; display:block;}
@@ -293,25 +302,49 @@
   .onehour-photo img{display:block; width:100%; height:auto;}
 
   /* Price-related selling points */
-  .points-title{font-size:clamp(30px, 4.4vw, 46px); font-weight:800; line-height:1.05; text-align:center; margin:0 auto 40px; max-width:22ch;}
+  .points-band{background:#2B1620; color:#F6E9EF;}
+  .points-kicker{display:block; text-align:center; font-weight:800; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:#FF8CC2; margin-bottom:10px;}
+  .points-title{font-size:clamp(32px, 4.8vw, 52px); font-weight:800; line-height:1.05; text-align:center; margin:0 auto 44px; max-width:22ch; color:#fff;}
   .points{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
   @media (max-width:860px){ .points{grid-template-columns:1fr;} }
-  .point{background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:30px 28px;}
+  .point{
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:24px; padding:32px 28px;
+    transition:transform .25s ease, background .25s ease, border-color .25s ease;
+  }
+  .point:hover{transform:translateY(-4px); background:rgba(255,255,255,.08); border-color:rgba(255,140,194,.45);}
   .point-icon{
-    width:56px; height:56px; border-radius:16px; margin-bottom:18px;
-    background:var(--pink-soft); color:var(--pink-deep);
+    width:58px; height:58px; border-radius:18px; margin-bottom:20px;
+    background:linear-gradient(140deg, #E2007A, #FF7A59); color:#fff;
     display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 26px -12px rgba(226,0,122,.8);
   }
   .point-icon svg{width:28px; height:28px;}
-  .point h3{font-size:24px; font-weight:800; line-height:1.12; margin-bottom:8px;}
-  .point p{color:var(--ink-muted); font-size:16px; margin:0;}
+  .point h3{font-size:24px; font-weight:800; line-height:1.12; margin-bottom:8px; color:#fff;}
+  .point p{color:#D9C3CC; font-size:16px; margin:0;}
+  .point p.fine{font-size:12.5px; color:#A88D99; margin-top:10px;}
+  .services{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:34px;}
+  .service{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 18px; border-radius:999px;
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    color:#fff; font-weight:700; font-size:15px;
+  }
+  .service svg{width:18px; height:18px; color:#FF8CC2; flex:none;}
 
   /* Final CTA: big, in the middle of the page */
   .final-cta{
-    background:linear-gradient(150deg, var(--pink), var(--pink-deep));
-    border-radius:32px; padding:88px 44px; color:#fff; text-align:center;
+    position:relative; overflow:hidden; isolation:isolate;
+    background:linear-gradient(150deg, #E2007A, #A8005D);
+    border-radius:32px; padding:96px 44px; color:#fff; text-align:center;
     max-width:1132px; margin:0 auto;
+    box-shadow:0 40px 80px -40px rgba(168,0,93,.7);
   }
+  .final-cta::before, .final-cta::after{
+    content:""; position:absolute; z-index:-1; border-radius:50%;
+    border:46px solid rgba(255,255,255,.08);
+  }
+  .final-cta::before{width:420px; height:420px; left:-140px; top:-170px;}
+  .final-cta::after{width:520px; height:520px; right:-190px; bottom:-260px;}
   .final-cta h2{color:#fff; font-size:clamp(48px, 9vw, 108px); line-height:.95; margin-bottom:20px; letter-spacing:-.01em;}
   .final-cta p{color:rgba(255,255,255,0.92); font-size:20px; max-width:52ch; margin:0 auto 32px;}
   .final-cta .btn-row{justify-content:center;}
@@ -337,6 +370,11 @@
   }
   .map-go:hover{background:var(--pink-deep);}
   .map-go svg{width:16px; height:16px;}
+
+  /* Scroll reveal */
+  .js .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay:var(--d, 0s);}
+  .js .reveal.in{opacity:1; transform:none;}
+  @media (prefers-reduced-motion: reduce){ .js .reveal{opacity:1; transform:none; transition:none;} }
 
   /* Footer */
   footer.site{padding:40px 0 32px; text-align:center;}
@@ -433,13 +471,13 @@
   <!-- 1 HOUR BANNER -->
   <section class="onehour" aria-labelledby="onehour-h">
     <div class="wrap onehour-grid">
-      <div>
+      <div class="reveal">
         <span class="onehour-kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6M12 2v3"/></svg><span class="es">Laboratorio propio</span><span class="en">Our own lab</span></span>
         <h2 id="onehour-h"><span class="es">Lentes listos en <em>1 hora</em></span><span class="en">Glasses ready in <em>1 hour</em></span></h2>
         <p><span class="es">Los hacemos en nuestro propio laboratorio, dentro de la tienda. Llegas con tu receta y sales con tus lentes.</span><span class="en">We make them in our own lab, inside the store. Come in with your prescription and leave with your glasses.</span></p>
         <p class="fine"><span class="es">*Recetas elegibles.</span><span class="en">*Eligible prescriptions.</span></p>
       </div>
-      <div class="onehour-photo">
+      <div class="onehour-photo reveal" style="--d:.12s">
         <picture>
           <source type="image/webp" srcset="images/una-hora-640.webp 640w, images/una-hora-1100.webp 1100w" sizes="(max-width: 900px) 100vw, 540px">
           <img src="images/una-hora-1100.jpg" srcset="images/una-hora-640.jpg 640w, images/una-hora-1100.jpg 1100w" sizes="(max-width: 900px) 100vw, 540px" width="1100" height="660" loading="lazy" alt="Letrero 'Glasses ready in one hour' en la tienda de 8080 Gateway East">
@@ -449,32 +487,40 @@
   </section>
 
   <!-- PRICE POINTS -->
-  <section class="block" id="precios">
+  <section class="block points-band" id="precios">
     <div class="wrap">
-      <h2 class="points-title"><span class="es">Ver bien, sin gastar de más</span><span class="en">See well without overspending</span></h2>
+      <span class="points-kicker reveal"><span class="es">Precios</span><span class="en">Prices</span></span>
+      <h2 class="points-title reveal"><span class="es">Ver bien, sin gastar de más</span><span class="en">See well without overspending</span></h2>
       <div class="points">
-        <div class="point">
+        <div class="point reveal" style="--d:0.00s">
           <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="6.3" cy="13" r="4.3"/><circle cx="17.7" cy="13" r="4.3"/><path d="M10.6 12.6h2.8"/><path d="M2 12.2l-.8-2.4M22 12.2l.8-2.4"/></svg></div>
           <h3><span class="es">Te mejoramos cualquier presupuesto</span><span class="en">We'll beat any quote</span></h3>
           <p><span class="es">Trae la cotización de otra óptica y te damos un mejor precio.</span><span class="en">Bring a quote from another optical store and we'll give you a better price.</span></p>
+          <p class="fine"><span class="es">*Sujeto a revisión en tienda.</span><span class="en">*Subject to in-store review.</span></p>
         </div>
-        <div class="point">
+        <div class="point reveal" style="--d:0.08s">
           <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
           <h3><span class="es">Precios accesibles</span><span class="en">Affordable prices</span></h3>
           <p><span class="es">Lentes completos a un precio justo, para toda la familia.</span><span class="en">Complete glasses at a fair price, for the whole family.</span></p>
         </div>
-        <div class="point">
+        <div class="point reveal" style="--d:0.16s">
           <div class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6z"/><path d="m8.5 12 2.5 2.5 4.5-4.5"/></svg></div>
           <h3><span class="es">Aseguranzas aceptadas</span><span class="en">Insurance accepted</span></h3>
           <p><span class="es">Pregúntanos por la tuya.</span><span class="en">Ask us about yours.</span></p>
         </div>
+      </div>
+      <div class="services reveal">
+        <span class="service"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="es">Examen de la vista</span><span class="en">Eye exams</span></span>
+        <span class="service"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.7-.6-.6-2.7z"/></svg><span class="es">Ajustes y limpieza gratis</span><span class="en">Free adjustments &amp; cleaning</span></span>
+        <span class="service"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg><span class="es">Facilidades de pago</span><span class="en">Payment options</span></span>
+        <span class="service"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.5 14.2-1.5 7.8 5-3 5 3-1.5-7.8"/></svg><span class="es">Garantía</span><span class="en">Warranty</span></span>
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section class="block tight">
-    <div class="final-cta">
+    <div class="final-cta reveal">
       <h2><span class="es">Te esperamos hoy.</span><span class="en">We'll see you today.</span></h2>
       <p><span class="es">Lunes a sábado, 9 AM – 6 PM · 8080 Gateway East, El Paso</span><span class="en">Monday–Saturday, 9 AM – 6 PM · 8080 Gateway East, El Paso</span></p>
       <div class="btn-row">
@@ -487,7 +533,7 @@
   <!-- MAP -->
   <section class="block" id="ubicacion" aria-label="Mapa / Map">
     <div class="wrap">
-      <div class="map-wrap">
+      <div class="map-wrap reveal">
         <iframe title="Mapa: Ópticas Veinte Veinte, 8080 Gateway Blvd E, El Paso, TX" src="https://www.google.com/maps?q=%C3%93pticas+Veinte+Veinte,+8080+Gateway+Blvd+E,+El+Paso,+TX+79907&hl=es&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
       <div class="map-actions"><a class="map-go" href="https://www.google.com/maps/dir/?api=1&destination=8080+Gateway+Blvd+E+El+Paso+TX+79907" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span class="es">Cómo llegar</span><span class="en">Get directions</span></a></div>
@@ -546,6 +592,14 @@
     }
   }
   updateStatus();
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {rootMargin: '0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
   (function(){
     var hero = document.querySelector('.hero-logo');
     var header = document.querySelector('header.site');
